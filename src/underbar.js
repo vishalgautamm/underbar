@@ -204,7 +204,9 @@
     if (collection.length === 0) {
       return false;
     }
-    return !_.every(collection, iterator) ? true : false;
+    return !_.every(collection, function(elem) {
+      return !iterator(elem);
+    })
   };
 
 
